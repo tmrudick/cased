@@ -1,0 +1,258 @@
+<!doctype html>
+<html>
+  <head>
+    <title>California Job Case: The Game</title>
+  <style>
+   table, td {
+      border: 2px solid black;
+      text-align: center
+    }
+
+    .clickable:hover {
+      border: 3px solid green;
+      cursor: pointer
+    }
+
+    td {
+      height: 50;
+      width: 50px;
+    }
+
+    .bar {
+      width: 15px;
+    }
+    td.block {
+      display: none;
+width: 0px;
+background: none;
+}
+.hidden {
+  color: #fff;
+}
+.guessed {
+  color: green;
+}
+  </style>
+  </head>
+  <body>
+    <table>
+      <tbody>
+      <tr>
+        <td class="block"></td>
+        <td rowspan="2" class="clickable">ffi</td>
+        <td rowspan="2" class="clickable">fl</td>
+        <td rowspan="2" class="clickable">5m</td>
+        <td rowspan="2" class="clickable">4em</td>
+        <td rowspan="2" class="clickable">'</td>
+        <td rowspan="2" class="clickable">k</td>
+        <td rowspan="6" colspan="2" class="clickable">e</td>
+        <td rowspan="14" class="bar"></td>
+        <td rowspan="2" class="clickable">1</td>
+        <td rowspan="2" class="clickable">2</td>
+        <td rowspan="2" class="clickable">3</td>
+        <td rowspan="2" class="clickable">4</td>
+        <td rowspan="2" class="clickable">5</td>
+        <td rowspan="2" class="clickable">6</td>
+        <td rowspan="2" class="clickable">7</td>
+        <td rowspan="2" class="clickable">8</td>
+        <td rowspan="14" class="bar"></td>
+        <td rowspan="2" class="clickable">$</td>
+        <td rowspan="2" class="clickable">-</td>
+        <td rowspan="2">&nbsp;</td>
+        <td rowspan="2" class="clickable">[</td>
+        <td rowspan="2" class="clickable">]</td>
+        <td rowspan="2" class="clickable">(</td>
+        <td rowspan="2" class="clickable">)</td>
+      </tr>
+      <tr>
+        <td class="block"></td>
+      </tr>
+      <tr>
+        <td class="block"></td>
+        <td rowspan="2" class="clickable">j</td>
+        <td rowspan="4" class="clickable">b</td>
+        <td rowspan="4" colspan="2" class="clickable">c</td>
+        <td rowspan="4" colspan="2" class="clickable">d</td>
+        <td rowspan="4" colspan="2" class="clickable">i</td>
+        <td rowspan="4" colspan="2" class="clickable">s</td>
+        <td rowspan="4" class="clickable">f</td>
+        <td rowspan="4" class="clickable">g</td>
+        <td rowspan="2" class="clickable">ff</td>
+        <td rowspan="2" class="clickable">9</td>
+        <td rowspan="3" class="clickable">A</td>
+        <td rowspan="3" class="clickable">B</td>
+        <td rowspan="3" class="clickable">C</td>
+        <td rowspan="3" class="clickable">D</td>
+        <td rowspan="3" class="clickable">E</td>
+        <td rowspan="3" class="clickable">F</td>
+        <td rowspan="3" class="clickable">G</td>
+      </tr>
+      <tr>
+        <td class="block"></td>
+      </tr>
+      <tr>
+        <td class="block"></td>
+        <td rowspan="2" class="clickable">?</td>
+        <td rowspan="2" class="clickable">fi</td>
+        <td rowspan="2" class="clickable">0</td>
+      </tr>
+      <tr>
+        <td class="block"></td>
+        <td rowspan="3" class="clickable">H</td>
+        <td rowspan="3" class="clickable">I</td>
+        <td rowspan="3" class="clickable">K</td>
+        <td rowspan="3" class="clickable">L</td>
+        <td rowspan="3" class="clickable">M</td>
+        <td rowspan="3" class="clickable">N</td>
+        <td rowspan="3" class="clickable">O</td>
+      </tr>
+      <tr>
+        <td class="block"></td>
+        <td rowspan="2" class="clickable">!</td>
+        <td rowspan="4" class="clickable">l</td>
+        <td rowspan="4" colspan="2" class="clickable">m</td>
+        <td rowspan="4" colspan="2" class="clickable">n</td>
+        <td rowspan="4" colspan="2" class="clickable">h</td>
+        <td rowspan="4" colspan="2" class="clickable">o</td>
+        <td rowspan="4" class="clickable">y</td>
+        <td rowspan="4" class="clickable">p</td>
+        <td rowspan="4" class="clickable">w</td>
+        <td rowspan="4" class="clickable">,</td>
+        <td rowspan="4" class="clickable">enqd</td>
+        <td rowspan="4" class="clickable">emqd</td>
+      </tr>
+      <tr>
+        <td class="block"></td>
+      </tr>
+      <tr>
+        <td class="block"></td>
+        <td rowspan="2" class="clickable">z</td>
+        <td rowspan="3" class="clickable">P</td>
+        <td rowspan="3" class="clickable">Q</td>
+        <td rowspan="3" class="clickable">R</td>
+        <td rowspan="3" class="clickable">S</td>
+        <td rowspan="3" class="clickable">T</td>
+        <td rowspan="3" class="clickable">V</td>
+        <td rowspan="3" class="clickable">W</td>
+      </tr>
+      <tr>
+        <td class="block"></td>
+      </tr>
+      <tr>
+        <td class="block"></td>
+        <td rowspan="2" class="clickable">x</td>
+        <td rowspan="4" class="clickable">v</td>
+        <td rowspan="4" colspan="2" class="clickable">u</td>
+        <td rowspan="4" colspan="2" class="clickable">t</td>
+        <td rowspan="4" colspan="2" class="clickable">3em</td>
+        <td rowspan="4" colspan="2" class="clickable">a</td>
+        <td rowspan="4" colspan="2" class="clickable">r</td>
+        <td rowspan="2" class="clickable">;</td>
+        <td rowspan="2" class="clickable">:</td>
+        <td rowspan="4" colspan="2" class="clickable">quads</td>
+      </tr>
+      <tr>
+        <td class="block"></td>
+        <td rowspan="3" class="clickable">X</td>
+        <td rowspan="3" class="clickable">Y</td>
+        <td rowspan="3" class="clickable">Z</td>
+        <td rowspan="3" class="clickable">J</td>
+        <td rowspan="3" class="clickable">U</td>
+        <td rowspan="3" class="clickable">&amp;</td>
+        <td rowspan="3" class="clickable">ffl</td>
+      </tr>
+      <tr>
+        <td class="block"></td>
+        <td rowspan="2" class="clickable">q</td>
+        <td rowspan="2" class="clickable">.</td>
+        <td rowspan="2" class="clickable">-</td>
+      </tr>
+      <tr>
+        <td class="block"></td>
+      </tr>
+    </tbody>
+    </table>
+    <p id="current-letter"></p>
+    <p id="status"></p>
+    <button id="start-game">Start</button>
+    <button id="skip-letter">Skip</button>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script>
+      var CaliCase = (function(letterClass) {
+        // Internal variables
+        var lettersVisible = true,
+            lettersLeft = [],
+            currentLetter;
+
+        return {
+          toggleLetters: function() {
+            if (lettersVisible) {
+              $(letterClass).addClass('hidden');
+            } else {
+              $(letterClass).removeClass('hidden');
+            }
+
+            lettersVisible = !lettersVisible;
+          },
+          start: function() {
+            this.toggleLetters();
+
+            // Add all letters to lettersLeft
+            lettersLeft = [];
+            $(letterClass).each(function() {
+              lettersLeft.push($(this).text());
+            });
+          },
+          getLetter: function() {
+            var idx = Math.floor(Math.random() * lettersLeft.length);
+            currentLetter = lettersLeft.splice(idx, 1)[0];
+
+            return currentLetter;
+          },
+          guess: function(letter) {
+            return letter === currentLetter;
+          },
+          skip: function() {
+            lettersLeft.push(currentLetter);
+          }
+        }
+      })('.clickable');
+
+
+      $('.clickable').click(function() {
+        var letter = $(this).text();
+        $('#status').text('');
+        if (CaliCase.guess(letter)) {
+          var nextLetter = CaliCase.getLetter();
+          if (!nextLetter) {
+            $('#status').text('You Win!')
+            $('#current-letter').text('');
+            $('#start-game').show();
+            $('#current-letter').hide();
+            return;
+          }
+
+          $('#current-letter').text(nextLetter);
+
+          // Show the just guessed letter
+          $(this).removeClass('hidden');
+        } else {
+          $('#status').text('Wrong');
+        }
+      });
+
+      $('#start-game').click(function() {
+        CaliCase.start();
+        $('#current-letter').text(CaliCase.getLetter());
+
+        $('#start-game').hide();
+        $('#skip-letter').show();
+      });
+
+      $('#skip-letter').click(function() {
+        CaliCase.skip();
+        $('#current-letter').text(CaliCase.getLetter());
+      });
+    </script>
+  </body>
+</html>
