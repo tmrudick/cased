@@ -4,7 +4,7 @@
     <title>California Job Case: The Game</title>
   <style>
    table, td {
-      border: 2px solid black;
+      border: 3px solid black;
       text-align: center
     }
 
@@ -175,27 +175,23 @@ background: none;
     <p id="current-letter"></p>
     <p id="status"></p>
     <button id="start-game">Start</button>
-    <button id="skip-letter">Skip</button>
+    <ul id="stats">
+    </ul>
+    <button id="skip-letter" style="display:none">Skip</button>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script>
       var CaliCase = (function(letterClass) {
         // Internal variables
-        var lettersVisible = true,
-            lettersLeft = [],
-            currentLetter;
+        var lettersLeft = [],
+            currentLetter,
+            stats = {};
 
         return {
-          toggleLetters: function() {
-            if (lettersVisible) {
-              $(letterClass).addClass('hidden');
-            } else {
-              $(letterClass).removeClass('hidden');
-            }
-
-            lettersVisible = !lettersVisible;
+          hideLetters: function() {
+            $(letterClass).addClass('hidden');
           },
           start: function() {
-            this.toggleLetters();
+            this.hideLetters();
 
             // Add all letters to lettersLeft
             lettersLeft = [];
@@ -210,32 +206,59 @@ background: none;
             return currentLetter;
           },
           guess: function(letter) {
-            return letter === currentLetter;
+            if (letter != currentLetter) {
+              if (!stats[currentLetter]) {
+                stats[currentLetter] = 0;
+              }
+
+              stats[currentLetter]++;
+              return false
+            }
+
+            return true;
           },
           skip: function() {
             lettersLeft.push(currentLetter);
+          },
+          getWorst: function() {
+            var flattened = Object.keys(stats).map(function(key) {
+              return {
+                letter: key,
+                wrong: stats[key]
+              }
+            });
+
+            flattened.sort(function(a, b) {
+              return b.wrong - a.wrong;
+            });
+
+            return flattened;
           }
         }
       })('.clickable');
-
 
       $('.clickable').click(function() {
         var letter = $(this).text();
         $('#status').text('');
         if (CaliCase.guess(letter)) {
+          // Show the just guessed letter
+          $(this).removeClass('hidden');
+
           var nextLetter = CaliCase.getLetter();
           if (!nextLetter) {
             $('#status').text('You Win!')
             $('#current-letter').text('');
             $('#start-game').show();
-            $('#current-letter').hide();
+            $('#skip-letter').hide();
+
+            CaliCase.getWorst().forEach(function(letter) {
+              $('ul').append('<li>' + letter.letter + ': ' + letter.wrong + '</li>');
+            });
+
             return;
           }
 
           $('#current-letter').text(nextLetter);
-
-          // Show the just guessed letter
-          $(this).removeClass('hidden');
         } else {
           $('#status').text('Wrong');
         }
@@ -245,6 +268,7 @@ background: none;
         CaliCase.start();
         $('#current-letter').text(CaliCase.getLetter());
 
+        $('ul').html('');
         $('#start-game').hide();
         $('#skip-letter').show();
       });
